@@ -35,11 +35,11 @@ from ope.algos.more_robust_doubly_robust import MRDR
 from ope.algos.retrace_lambda import Retrace
 from ope.algos.approximate_model import ApproxModel
 
-from ope.models.basics import BasicPolicy
-from ope.models.epsilon_greedy_policy import EGreedyPolicy
-from ope.models.max_likelihood import MaxLikelihoodModel
-from ope.models.Q_wrapper import QWrapper
-from ope.models.tabular_model import TabularPolicy
+from ope.policies.basics import BasicPolicy 
+from ope.policies.epsilon_greedy_policy import EGreedyPolicy
+from ope.policies.max_likelihood import MaxLikelihoodModel
+from ope.policies.Q_wrapper import QWrapper
+from ope.policies.tabular_model import TabularPolicy
 
 from ope.utls.get_Qs import getQs
 from ope.utls.rollout import rollout

@@ -14,7 +14,11 @@ class BasicPolicy(object):
 		return self(xs)
 
 	def __call__(self, states):
-		return np.random.choice(self.actions, size=len(states), p=self.probs)
+		try:
+			return np.random.choice(self.actions, size=len(states), p=self.probs)
+		except ValueError as e:
+			print(self.probs)
+			raise e
 
 
 class BasicPolicy_MODELWIN(object):

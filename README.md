@@ -1,5 +1,14 @@
 # Caltech OPE Benchmarking Suite (COBS)
 
+## Rerun experiment lookup
+
+| Experiment Name | gamma($\gamma$)| num_traj(N) | Horizon(T) | ($\pi_{b}(a=0)$) | ($\pi_{e}(a=0)$) | Stoch Env | Stoch Rew |  Sparse | ModelType | Regress $\pi_{b}$ |
+| --- | ---| --- | --- | ---| --- | --- | --- |  --- | --- | --- |
+| exp1-toy_graph | 0.98 | 8,16,32,64,128,256,512,1024,2048 | 4,16 | 0.2,0.6 | 0.8 | True,False | True,False | True,False | tabluar | False |
+<!-- | exp2-toy_graph | 0.98 | $2^{8}$ | 4 | 0.6 | 0.8 | True | False | False | tabluar | False | -->
+Column titles are defined as: name_in_config(name_in_paper)
+
+
 ## Introduction
 
 COBS is an Off-Policy Policy Evaluation (OPE) Benchmarking Suite. The goal is to provide fine experimental control to carefully tease out an OPE method's performance across many key conditions. 

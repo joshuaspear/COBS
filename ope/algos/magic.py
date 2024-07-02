@@ -175,7 +175,7 @@ class MAGIC(object):
             ):
                 random_idxs = np.random.choice(num_j_steps, sample_size, replace=False)
                 random_idxs.sort()
-                wdr_estimate = self.compute_weighted_doubly_robust_point_estimate(
+                wdr_estimate, xs = self.compute_weighted_doubly_robust_point_estimate(
                     j_steps=[j_steps[i] for i in random_idxs],
                     num_j_steps=sample_size,
                     j_step_returns=j_step_returns[random_idxs],

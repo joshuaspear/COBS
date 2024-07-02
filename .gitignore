@@ -8,3 +8,6 @@ tf_vae/
 experiments/
 models/WorldModels/
 *.pyc
+OPETools.egg-info
+paper_exp_output
+.DS_Store
