@@ -256,7 +256,8 @@ class Data(object):
                     new_propensity[int(action)] = count/len(group)
 
                 new_propensity += 1e-8
-                propensity[int(x)] = new_propensity / sum(new_propensity)
+                assert len(x) == 1
+                propensity[int(x[0])] = new_propensity / sum(new_propensity)
 
             for episode_num, states in enumerate(np.squeeze(self.states())):
                 base_propensity = []

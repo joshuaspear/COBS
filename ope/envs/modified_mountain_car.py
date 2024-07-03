@@ -25,7 +25,7 @@ class ModifiedMountainCarEnv(MountainCarEnv):
         self.frameheight = frameheight
         self.seed(seed)
         self.reset()
-        self.render()
+        #self.render()
 
     def overwrite_rewards(self, new_r):
         self.reward_model = new_r

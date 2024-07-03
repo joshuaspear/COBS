@@ -2,12 +2,45 @@
 
 ## Rerun experiment lookup
 
-| Experiment Name | gamma($\gamma$)| num_traj(N) | Horizon(T) | ($\pi_{b}(a=0)$) | ($\pi_{e}(a=0)$) | Stoch Env | Stoch Rew |  Sparse | ModelType | Regress $\pi_{b}$ |
-| --- | ---| --- | --- | ---| --- | --- | --- |  --- | --- | --- |
-| exp1-toy_graph | 0.98 | 8,16,32,64,128,256,512,1024,2048 | 4,16 | 0.2,0.6 | 0.8 | True,False | True,False | True,False | tabluar | False |
-<!-- | exp2-toy_graph | 0.98 | $2^{8}$ | 4 | 0.6 | 0.8 | True | False | False | tabluar | False | -->
-Column titles are defined as: name_in_config(name_in_paper)
+Mapping between names in paper and names in config:
+| Name in config | Name in paper |
+| ---- | ---- |
+| gamma | $\gamma$ |
+| num_traj | N |
+| horizon | T |
+| ? | $\pi_{b}(a=0)$ |
+| ? | $\pi_{e}(a=0)$ |
+| ? | Stoch Env |
+| ? | Stoch Rew |
+| ? | Sparse |
+| ? | ModelType |
+| ? | Regress $\pi_{b}$ |
+| max_traj_length | Max Traj Len |
+| max_epochs | NN Fit Epochs |
+| batch_size | NN Batchsize |
+| NA | NN Train size |
+| NA | NN Val size |
+| convergence_epsilon | NN Early Stop delta |
+| NA | Omega regul. |
+| convergence_epsilon/divergence_epsilon | Convergence $\epsilon$ |
+| max_epochs | Max Iter |
+| clipnorm | Optimizer Clipnorm |
+| NA | Quad. prog. regular. |
+| lamb | $\lambda$ |
+| clipnorm | NN ClipNorm |
+| MBased | AM |
+| Q-Reg | Q-Reg |
+| FQE | FQE |
+| IH | IH |
+| MRDR | MRDR |
+| Retrace | R($\lambda$) |
+| Q^pi(lambda) | ($Q^{\pi}\lambda$) |
+| Tree-Backup | Tree |
 
+Place holder values of:
+* max_epochs: 10000
+* convergence_epsilon: 0 
+were used. 
 
 ## Introduction
 
