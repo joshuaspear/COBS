@@ -1,0 +1,72 @@
+{
+    "experiment": {
+        "env": "gridworld",
+        "gamma": 0.99,
+        "horizon": 25,
+        "base_policy": [0.2,0.4,0.6,0.8,1],
+        "eval_policy": 0.1,
+        "stochastic_env": false,
+        "stochastic_rewards": false,
+        "sparse_rewards": false,
+        "num_traj": [64,128,256,512,1024,2048],
+        "is_pomdp": false,
+        "pomdp_horizon": 2,
+        "access": 0,
+        "secret": 0,
+        "to_regress_pi_b": {
+                "to_regress": true,
+                "model": "tabular"
+            },
+        "frameskip": 1,
+        "frameheight": 1
+        },
+        "models": {
+            "MBased": {
+                "model": "tabular",
+                "max_traj_length": "horizon",
+                "convergence_epsilon": 0
+            },
+            "Q-Reg": {
+                "model": "tabular",
+                "convergence_epsilon": 0,
+                "max_epochs":10000
+            },
+            "FQE": {
+                "model": "tabular",
+                "convergence_epsilon": 4e-4,
+                "max_epochs":50
+            },
+            "IH": {
+                "model": "tabular",
+                "convergence_epsilon": 1e-3
+            },
+            "MRDR": {
+                "model": "tabular",
+                "convergence_epsilon": 0,
+                "max_epochs":10000
+            },
+            "Retrace": {
+                "model": "tabular",
+                "lamb": 0.9,
+                "convergence_epsilon": 2e-3,
+                "divergence_epsilon": 1000,
+                "max_epochs": 50
+            },
+            "Q^pi(lambda)": {
+                "model": "tabular",
+                "lamb": 0.9,
+                "convergence_epsilon": 2e-3,
+                "divergence_epsilon": 1000,
+                "max_epochs": 50
+            },
+            "Tree-Backup": {
+                "model": "tabular",
+                "lamb": 0.9,
+                "convergence_epsilon": 2e-3,
+                "divergence_epsilon": 1000,
+                "max_epochs": 50
+            },
+            "IS": {"model": "tabular"}
+        }    
+}
+

@@ -1,0 +1,70 @@
+{
+    "experiment": {
+        "env": "toy_graph",
+        "gamma": 0.98,
+        "horizon": false,
+        "base_policy": [0.2,0.6],
+        "eval_policy": 0.8,
+        "stochastic_env": [true,false],
+        "stochastic_rewards": [true,false],
+        "sparse_rewards": [true,false],
+        "num_traj": [256,512,1024,2048],
+        "is_pomdp": true,
+        "pomdp_horizon": [[2,2],[6,16]],
+        "access": 0,
+        "secret": 0,
+        "to_regress_pi_b": {
+                "to_regress": false,
+                "model": "tabular"
+            },
+        "frameskip": 1,
+        "frameheight": 1
+        },
+        "models": {
+            "MBased": {
+                "model": "tabular",
+                "max_traj_length": "horizon"
+            },
+            "Q-Reg": {
+                "model": "tabular",
+                "convergence_epsilon": 0,
+                "max_epochs":10000
+            },
+            "FQE": {
+                "model": "tabular",
+                "convergence_epsilon": 1e-5,
+                "max_epochs":10000
+            },
+            "IH": {
+                "model": "tabular",
+                "convergence_epsilon": 1e-3
+            },
+            "MRDR": {
+                "model": "tabular",
+                "convergence_epsilon": 0,
+                "max_epochs":10000
+            },
+            "Retrace": {
+                "model": "tabular",
+                "lamb": 0.9,
+                "convergence_epsilon": 1e-3,
+                "divergence_epsilon": 1000,
+                "max_epochs": 500
+            },
+            "Q^pi(lambda)": {
+                "model": "tabular",
+                "lamb": 0.9,
+                "convergence_epsilon": 1e-3,
+                "divergence_epsilon": 1000,
+                "max_epochs": 500
+            },
+            "Tree-Backup": {
+                "model": "tabular",
+                "lamb": 0.9,
+                "convergence_epsilon": 1e-3,
+                "divergence_epsilon": 1000,
+                "max_epochs": 500
+            },
+            "IS": {"model": "tabular"}
+        }
+}
