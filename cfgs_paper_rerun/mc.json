@@ -22,38 +22,38 @@
         },
         "models": {
             "MBased": {
-                "model": ["NN","tabular"],
+                "model": ["NN","tabular","linear"],
                 "max_traj_length": 50,
                 "max_epochs":100,
                 "batch_size": 32,
                 "convergence_epsilon": 1e-4
             },
             "Q-Reg": {
-                "model": ["NN","tabular"],
+                "model": ["NN","tabular","linear"],
                 "max_epochs":80,
                 "batch_size": 32,
                 "convergence_epsilon": 1e-4
             },
             "FQE": {
-                "model": ["NN","tabular"],
+                "model": ["NN","tabular","linear"],
                 "convergence_epsilon": 1e-4,
                 "max_epochs":160,
                 "batch_size":32,
                 "clipnorm": 1
             },
             "IH": {
-                "model": ["NN","tabular"],
+                "model": ["NN","tabular","linear"],
                 "max_epochs":10001,
                 "batch_size": 1024
             },
             "MRDR": {
-                "model": ["NN","tabular"],
+                "model": ["NN","tabular","linear"],
                 "max_epochs":80,
                 "batch_size": 1024,
                 "convergence_epsilon": 1e-4
             },
             "Retrace": {
-                "model": ["NN","tabular"],
+                "model": ["NN","tabular","linear"],
                 "lamb": 0.9,
                 "convergence_epsilon": 1e-3,
                 "divergence_epsilon": 1000,
@@ -62,7 +62,7 @@
                 "clipnorm": 1
             },
             "Q^pi(lambda)": {
-                "model": ["NN","tabular"],
+                "model": ["NN","tabular","linear"],
                 "lamb": 0.9,
                 "convergence_epsilon": 1e-3,
                 "divergence_epsilon": 1000,
@@ -71,7 +71,7 @@
                 "clipnorm": 1
             },
             "Tree-Backup": {
-                "model": ["NN","tabular"],
+                "model": ["NN","tabular","linear"],
                 "lamb": 0.9,
                 "convergence_epsilon": 1e-3,
                 "divergence_epsilon": 1000,
@@ -79,7 +79,7 @@
                 "batch_size": 4,
                 "clipnorm": 1
             },
-            "IS": {"model": ["NN","tabular"]}
+            "IS": {"model": ["NN","tabular","linear"]}
         }    
 
 }
