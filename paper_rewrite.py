@@ -280,6 +280,12 @@ if __name__ == "__main__":
             param:Dict = json.load(f)
         exp_rt = config_nm.split(".")[0]
         lst_args = [key for key in param["experiment"].keys() if isinstance(param["experiment"][key],list)]
+        mdl_lst_args = [
+            param["models"][key]["model"] for key in param["models"].keys()
+            ][0]
+        if not isinstance(mdl_lst_args, list):
+            mdl_lst_args = [mdl_lst_args]
+        mdl_lst_args = list(itertools.product(mdl_lst_args))
         for key in lst_args:
             param["experiment"][key] = [{key:val} for val in param["experiment"][key]]    
         for it_val in list(itertools.product(*[param["experiment"][key] for key in lst_args])):
@@ -316,23 +322,27 @@ if __name__ == "__main__":
                  for key in exp_params["models"]:
                         if "max_traj_length" in exp_params["models"][key].keys():
                             exp_params["models"][key]["max_traj_length"] = exp_params["experiment"]["horizon"]
-            exp_nm = "-".join([str(val) for val in exp_params["experiment"].values()])
-            exp = Experiment(
-                exp_name=exp_nm,
-                parent_loc=EXPERIMENT_DIR,
-                mt=tracker
+            for mdl_type in mdl_lst_args:
+                for mdl in exp_params["models"]:
+                    exp_params["models"][mdl]["model"] = mdl_type[0]
+                exp_nm = "-".join([str(val) for val in exp_params["experiment"].values()])
+                exp_nm = exp_nm+"-"+mdl_type[0]
+                exp = Experiment(
+                    exp_name=exp_nm,
+                    parent_loc=EXPERIMENT_DIR,
+                    mt=tracker
+                    )
+                if tracker.is_created:
+                    tracker.read()
+                exp.status_check()
+                exp.run(
+                    option=Option("overwrite"),
+                    func=experiment_wrapper,
+                    exp_func=exp_lkp[param["experiment"]["env"]],
+                    meta_data=exp_params,
+                    param = exp_params,
+                    exp_rt = exp_rt,
+                    save_loc = exp.loc
                 )
-            if tracker.is_created:
-                tracker.read()
-            exp.status_check()
-            exp.run(
-                option=Option("overwrite"),
-                func=experiment_wrapper,
-                exp_func=exp_lkp[param["experiment"]["env"]],
-                meta_data=exp_params,
-                param = exp_params,
-                exp_rt = exp_rt,
-                save_loc = exp.loc
-            )
-            tracker.write()
+                tracker.write()
             
